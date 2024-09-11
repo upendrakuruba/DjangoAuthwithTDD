@@ -1,0 +1,10 @@
+<aside class="col-md-3">
+    <!--   SIDEBAR   -->
+    <ul class="list-group">
+        <a class="list-group-item {% if '/dashboard/' in request.path  %}active{% endif %}" href="{% url 'dashboard' %}"> Dashboard </a>
+        <a class="list-group-item {% if '/create_profile/' in request.path  %}active{% endif %}" href="{% url 'create_profile' %}">Create Profile </a>
+        <a class="list-group-item {% if '/edit_profile/' in request.path  %}active{% endif %}" href="{% url 'edit_profile' %}">Update Profile </a>
+        <a class="list-group-item {% if '/changepassword/' in request.path  %}active{% endif %}" href="{% url 'changepassword' %}">Change Password </a>
+        <a class="list-group-item {% if '/logout/' in request.path  %}active{% endif %} " href="{% url 'logout' %}"> Logout</a>
+    </ul>
+</aside>

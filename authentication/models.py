@@ -51,7 +51,6 @@ class Account(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
     is_superadmin = models.BooleanField(default=False)
-# pbkdf2aqmgMCcmEGxxradgtEhphKCfawZe$6000UQby7byKz
 
     USERNAME_FIELD ='email'
     REQUIRED_FIELDS = ['username','first_name','last_name']
@@ -66,3 +65,23 @@ class Account(AbstractBaseUser):
 
     def has_module_perms(self,add_label):
         return True
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(Account,on_delete=models.CASCADE)
+    mobile = models.CharField(max_length=50)
+    address_line_1 = models.CharField(blank=True,max_length=100)
+    address_line_2 = models.CharField(blank=True,max_length=100)
+    profile_picture = models.ImageField( upload_to='userprofile')
+    zipcode = models.CharField(max_length=20)
+    city = models.CharField(blank=True,max_length=20)
+    state = models.CharField(blank=True,max_length=20)
+    country = models.CharField(blank=True,max_length=20)
+    role = models.CharField( max_length=50,blank=True)
+
+    def __str__(self):
+        return self.user.first_name
+    
+    def full_address(self):
+        return f"{self.address_line_1} {self.address_line_2} "
+    
