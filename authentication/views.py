@@ -38,7 +38,7 @@ class RegistrationView(View):
             context={'data':request.POST,'has_error':False}
             first_name=request.POST.get('first_name')
             last_name=request.POST.get('last_name')
-            username=first_name+' '+last_name
+            username=request.POST.get('username')
             email = request.POST.get('email')
             password = request.POST.get('password')
             confirm_password = request.POST.get('confirm_password')
@@ -148,7 +148,6 @@ class HomeView(View):
         try:
             if  UserProfile.objects.filter(user=request.user).exists():
                 userprofile = UserProfile.objects.get(user=request.user)
-
                 if request.method == 'POST':
                     pe_form = UserProfileForm(request.POST,request.FILES,instance=userprofile)
                     if pe_form.is_valid():
@@ -257,6 +256,7 @@ def Edit_profile(request):
                     messages.success(request,'Your profile has been updated')
                     return redirect('edit_profile')
                 else:
+                    print('10------------------',ur_form.errors,pe_form.errors)
                     messages.error(request,'Your dont have a Account Please create')
                     return redirect('create_profile')
             else:
@@ -331,7 +331,6 @@ def Dashboard(request):
     try:
         if  UserProfile.objects.filter(user=request.user).exists():
             userprofile = UserProfile.objects.get(user=request.user)
-
             if request.method == 'POST':
                 pe_form = UserProfileForm(request.POST,request.FILES,instance=userprofile)
                 if pe_form.is_valid():

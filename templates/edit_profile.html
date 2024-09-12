@@ -15,24 +15,28 @@
 		</header>
 		<div class='card-body'>
       <div class='text-right' >
-        <img src='{{userprofile.profile_picture.url}}' alt='Profile picture' width='100' style='border-radius:50px;' />
+        <img src="{{userprofile.profile_picture.url}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"/>
       </div>
 			<div class ='row'>
 				<div class='col-md-12'>
         <form action='{% url "edit_profile" %}' method='POST' enctype="multipart/form-data" >
 				 {% csrf_token %}
 				<div class='form-row'>
-          			<div class='form-group col-md-6'>
+					<div class='form-group col-md-6'>
+						<label>Profile picture</label>
+						{{profile_form.profile_picture}}
+					</div>
+					<div class='form-group col-md-6'>
 						<label>First Name</label>
 						{{user_form.first_name}}
 					</div>
-          			<div class='form-group col-md-6'>
+					<div class='form-group col-md-6'>
 						<label>Last Name</label>
 						{{user_form.last_name}}
 					</div>
 					<div class='form-group col-md-6'>
-						<label>Profile picture</label>
-						{{profile_form.profile_picture}}
+						<label>Username</label>
+						{{user_form.username}}
 					</div>
 					<div class='form-group col-md-6'>
 						<label> Role</label>

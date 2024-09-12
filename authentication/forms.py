@@ -9,7 +9,7 @@ from django.contrib.auth import password_validation
 class UserForm(forms.ModelForm):
     class Meta:
         model = Account
-        fields = ('first_name','last_name')
+        fields = ('first_name','last_name','username')
 
 
     def __init__(self,*args, **kwargs):
