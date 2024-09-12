@@ -302,7 +302,7 @@ def create_profile(request):
                 user = UserProfile(user=user,profile_picture=profile_picture,role=role,address_line_1=address_line_1,address_line_2=address_line_2,mobile=mobile,country=country,city=city,zipcode=zipcode,state=state)
                 user.save()
                 messages.success(request,' Your Profile Created .')
-                return redirect('edit_profile')
+                return redirect('dashboard')
             except IntegrityError:
                 messages.error(request,'Your already created profile')
                 return redirect('edit_profile')
