@@ -279,6 +279,9 @@ def Edit_profile(request):
 
 
 
+
+
+
 @login_required(login_url='login')
 def create_profile(request):
     try:
@@ -323,7 +326,7 @@ def DeleteView(request):
     except Exception as e:
         messages.error(request,'Your not created profile Please create')
         return redirect('create_profile')
-    
+@login_required(login_url='login')  
 def Dashboard(request):
     try:
         if  UserProfile.objects.filter(user=request.user).exists():
