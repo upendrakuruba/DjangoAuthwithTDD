@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY='django-insecure-9gn3!l9$0o(2qkqno52zzc+&ervdq@!77rogk^-!=ijhvk$bxv'
+SECRET_KEY = 'django-insecure-9gn3!l9$0o(2qkqno52zzc+&ervdq@!77rogk^-!=ijhvk$bxv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -136,11 +136,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-EMAIL_HOST=config('EMAIL_HOST')
-EMAIL_USE_TLS=config('EMAIL_USE_TLS')
-EMAIL_PORT=config('EMAIL_PORT')
-EMAIL_HOST_USER=config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_USE_TLS='True'
+EMAIL_PORT='587'
+EMAIL_HOST_USER='noreplaynoreplay990@gmail.com'
+EMAIL_HOST_PASSWORD='yqms upub zpey sykt'
 
 
 from django.contrib.messages import constants as messages
