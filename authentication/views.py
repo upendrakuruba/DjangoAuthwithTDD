@@ -89,8 +89,8 @@ class RegistrationView(View):
             })
             to_email = email
             send_email = EmailMessage(email_subject,message,to=[to_email])
-            # send_email.send()
-            EmailThread(send_email).start()
+            send_email.send()
+            # EmailThread(send_email).start()
             messages.success(request,'Account Created Successfully Please verify your email')
             return redirect('login')
         return render(request,'register.html',context)
@@ -196,8 +196,8 @@ class RequestResetEmail(View):
                 })
                 to_email = email
                 send_email = EmailMessage(email_subject,message,to=[to_email])
-                # send_email.send()
-                EmailThread(send_email).start()
+                send_email.send()
+                # EmailThread(send_email).start()
                 messages.success(request,'Password Reset email has been sent to your address .')
                 return redirect('login')
             else:
